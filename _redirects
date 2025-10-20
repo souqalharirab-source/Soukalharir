@@ -1,0 +1,9 @@
+# Redirect all traffic to index.html for SPA routing
+/*    /index.html   200
+
+# Redirect www to non-www
+https://www.your-domain.com/* https://your-domain.com/:splat 301
+
+# Redirect HTTP to HTTPS
+http://your-domain.com/* https://your-domain.com/:splat 301
+

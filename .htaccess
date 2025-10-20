@@ -1,0 +1,105 @@
+# تفعيل mod_rewrite
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # إعادة توجيه HTTP إلى HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # إزالة www من الرابط
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+</IfModule>
+
+# تفعيل Gzip Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# تخزين مؤقت (Caching)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # HTML
+    ExpiresByType text/html "access plus 1 hour"
+    
+    # CSS
+    ExpiresByType text/css "access plus 1 month"
+    
+    # JavaScript
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # الصور
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # الخطوط
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    
+    # الملفات الأخرى
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/json "access plus 1 hour"
+    
+    # Default
+    ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# منع الوصول إلى الملفات الحساسة
+<FilesMatch "\.(env|json|lock|md|txt)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# منع الوصول إلى المجلدات الحساسة
+<DirectoryMatch "^/.*(\.git|\.env|node_modules|vendor)">
+    Order allow,deny
+    Deny from all
+</DirectoryMatch>
+
+# تحسين الأمان
+<IfModule mod_headers.c>
+    # منع عرض إصدار الخادم
+    Header always unset X-Powered-By
+    Header unset X-Powered-By
+    
+    # تحسين الأمان
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "no-referrer-when-downgrade"
+    
+    # السماح بـ CORS (اختياري)
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+# منع الوصول المباشر إلى الملفات الحساسة
+<Files "*.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# تحويل الأخطاء
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+ErrorDocument 500 /500.html
+
+# تحسين الأداء
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+
+# تفعيل KeepAlive
+<IfModule mod_http2.c>
+    Protocols h2 http/1.1
+</IfModule>
+
