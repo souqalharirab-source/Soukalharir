@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هارت - منصة الدردشة والتعارف</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-pink: #ff1493;
+            --light-pink: #ffb6d9;
+            --pale-pink: #fff0f7;
+            --dark-pink: #c71585;
+            --white: #ffffff;
+            --gray-light: #f5f5f5;
+            --gray-dark: #333333;
+            --text-gray: #666666;
+            --gradient-pink: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--white);
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(255, 20, 147, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: var(--gradient-pink);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: "❤️";
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-pink);
+        }
+
+        .btn-login {
+            background-color: transparent;
+            border: 2px solid var(--primary-pink);
+            color: var(--primary-pink);
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-pink);
+            color: var(--white);
+        }
+
+        .btn-signup {
+            background: var(--gradient-pink);
+            color: var(--white);
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-signup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--pale-pink) 0%, rgba(255, 182, 193, 0.3) 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: var(--gradient-pink);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient-pink);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.5);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary-pink);
+            border: 2px solid var(--primary-pink);
+            padding: 0.95rem 2.45rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--pale-pink);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--gray-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--pale-pink);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 182, 193, 0.5);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.2);
+            background: linear-gradient(135deg, var(--pale-pink) 0%, rgba(255, 105, 180, 0.1) 100%);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-pink);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--gradient-pink);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 2rem;
+            background-color: var(--gray-light);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--gray-dark);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--primary-pink);
+        }
+
+        .testimonial-rating {
+            color: var(--primary-pink);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            color: var(--gray-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-pink) 0%, var(--dark-pink) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta .btn-primary {
+            background-color: var(--white);
+            color: var(--primary-pink);
+            box-shadow: none;
+        }
+
+        .cta .btn-primary:hover {
+            background-color: var(--pale-pink);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-dark);
+            color: var(--white);
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--light-pink);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--light-pink);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 182, 193, 0.2);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-pink);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 182, 193, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-gray);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .features h2, .testimonials h2, .cta h2 {
+                font-size: 1.8rem;
+            }
+
+            .stat-item h3 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+                min-height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .features, .testimonials {
+                padding: 2rem 1rem;
+            }
+
+            .features-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">هارت</div>
+            <ul>
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#testimonials">آراء المستخدمين</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+                <li><button class="btn-login">دخول</button></li>
+                <li><button class="btn-signup">إنشاء حساب</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>جد <span>شريك حياتك</span> اليوم</h1>
+            <p>منصة آمنة وموثوقة للتعارف والدردشة مع أشخاص حقيقيين من حولك</p>
+            <div class="hero-buttons">
+                <button class="btn-primary">ابدأ الآن</button>
+                <button class="btn-secondary">تعرف على المزيد</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>لماذا تختار هارت؟</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>آمان وخصوصية</h3>
+                <p>بيانات محمية بأعلى معايير الأمان والتشفير لضمان خصوصيتك الكاملة</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>دردشة فورية</h3>
+                <p>تواصل مع الآخرين بشكل فوري وسلس من خلال رسائل نصية وصوتية</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>مطابقة ذكية</h3>
+                <p>خوارزمية متقدمة تجد لك الشركاء المناسبين بناءً على اهتماماتك</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>مجتمع عالمي</h3>
+                <p>التقي بأشخاص من جميع أنحاء العالم وتوسع دائرة معارفك</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <h3>تحقق موثوق</h3>
+                <p>جميع المستخدمين يمرون بعملية تحقق صارمة لضمان الأمان</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>تطبيق محمول</h3>
+                <p>استمتع بتجربة سلسة على الهاتف الذكي في أي وقت وأي مكان</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>500K+</h3>
+                <p>مستخدم نشط</p>
+            </div>
+            <div class="stat-item">
+                <h3>2M+</h3>
+                <p>رسالة يومية</p>
+            </div>
+            <div class="stat-item">
+                <h3>50K+</h3>
+                <p>قصة نجاح</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>دعم العملاء</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2>ماذا يقول المستخدمون؟</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"التقيت بزوجتي على هارت وتزوجنا بعد سنة! منصة رائعة وآمنة جداً"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">أ</div>
+                    <div class="author-info">
+                        <h4>أحمد محمد</h4>
+                        <p>السعودية</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"أفضل تطبيق للتعارف! واجهة سهلة وناس جادة تبحث عن علاقات حقيقية"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">ف</div>
+                    <div class="author-info">
+                        <h4>فاطمة علي</h4>
+                        <p>الإمارات</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"الأمان والخصوصية هما الأولوية هنا. شعرت بالراحة منذ البداية"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">م</div>
+                    <div class="author-info">
+                        <h4>محمود حسن</h4>
+                        <p>مصر</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <h2>جاهز لإيجاد شريك حياتك؟</h2>
+        <p>انضم إلى آلاف الأشخاص الذين وجدوا حبهم على هارت</p>
+        <button class="btn-primary">ابدأ الآن مجاناً</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>عن هارت</h4>
+                <ul>
+                    <li><a href="#">من نحن</a></li>
+                    <li><a href="#">مدونتنا</a></li>
+                    <li><a href="#">الوظائف</a></li>
+                    <li><a href="#">الشراكات</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>الدعم</h4>
+                <ul>
+                    <li><a href="#">مركز المساعدة</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                    <li><a href="#">تواصل معنا</a></li>
+                    <li><a href="#">الإبلاغ عن مشكلة</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>القانون</h4>
+                <ul>
+                    <li><a href="#">سياسة الخصوصية</a></li>
+                    <li><a href="#">شروط الاستخدام</a></li>
+                    <li><a href="#">سياسة الأمان</a></li>
+                    <li><a href="#">سياسة ملفات تعريف الارتباط</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>تابعنا</h4>
+                <div class="social-links">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Twitter">𝕏</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="LinkedIn">in</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 هارت - منصة الدردشة والتعارف. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+    <script type='text/javascript' src='//pl27893054.effectivegatecpm.com/a6/02/7a/a6027ac1750c6e1385132f75db18a125.js'></script>
+</body>
+</html>
+
