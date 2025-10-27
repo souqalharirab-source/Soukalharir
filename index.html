@@ -1,572 +1,90 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-    <script type='text/javascript' src='//pl27932848.effectivegatecpm.com/00/f3/1d/00f31d25f3621be2d8643425269de44a.js'></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بشرى العبدان - متجر الورود الفاخرة</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #d4145a 0%, #fbb034 100%);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        nav a:hover {
-            opacity: 0.8;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(212, 20, 90, 0.8), rgba(251, 176, 52, 0.8)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23fff" width="1200" height="600"/></svg>');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: white;
-            color: #d4145a;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            border: none;
-            font-size: 16px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Section */
-        section {
-            padding: 60px 20px;
-        }
-
-        section h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 40px;
-            color: #d4145a;
-        }
-
-        /* Products Grid */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #fbb034 0%, #d4145a 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-info h3 {
-            color: #d4145a;
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-
-        .product-info p {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-
-        .price {
-            font-size: 24px;
-            font-weight: bold;
-            color: #d4145a;
-            margin-bottom: 15px;
-        }
-
-        .add-to-cart {
-            width: 100%;
-            background-color: #d4145a;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .add-to-cart:hover {
-            background-color: #b01047;
-        }
-
-        /* About Section */
-        .about {
-            background-color: #f0f0f0;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            color: #d4145a;
-            margin-bottom: 15px;
-            font-size: 24px;
-        }
-
-        .about-text p {
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        .about-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #fbb034 0%, #d4145a 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 100px;
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-        }
-
-        .contact-icon {
-            font-size: 24px;
-            color: #d4145a;
-            min-width: 30px;
-        }
-
-        .contact-item h4 {
-            color: #d4145a;
-            margin-bottom: 5px;
-        }
-
-        .contact-item p {
-            color: #666;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            margin-bottom: 5px;
-            color: #333;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 14px;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            background-color: #d4145a;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .submit-btn:hover {
-            background-color: #b01047;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #fbb034;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 15px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-        }
-    </style>
+    <script type='text/javascript' src='//pl27893054.effectivegatecpm.com/a6/02/7a/a6027ac1750c6e1385132f75db18a125.js'></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boost Your Income with Smart AI Tools</title>
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #0078d7;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+    .content {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    .content h2 {
+      color: #333;
+      font-size: 28px;
+    }
+    .content p {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.6;
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background-color: #ff5722;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 20px;
+    }
+    .cta-button:hover {
+      background-color: #e64a19;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">🌹 بشرى العبدان</a>
-            <nav>
-                <ul>
-                    <li><a href="#products">المنتجات</a></li>
-                    <li><a href="#about">عن المتجر</a></li>
-                    <li><a href="#contact">اتصل بنا</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>متجر الورود الفاخرة</h1>
-        <p>أجمل الورود لأجمل المناسبات</p>
-        <a href="#products" class="cta-button">تسوق الآن</a>
-    </section>
+  <div class="header">
+    <h1>Discover the Future of Online Income</h1>
+  </div>
 
-    <!-- Products Section -->
-    <section id="products">
-        <div class="container">
-            <h2>منتجاتنا</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">🌹</div>
-                    <div class="product-info">
-                        <h3>باقة الورد الأحمر</h3>
-                        <p>باقة فاخرة من الورد الأحمر الطازج</p>
-                        <div class="price">150 ريال</div>
-                        <button class="add-to-cart">أضف إلى السلة</button>
-                    </div>
-                </div>
+  <div class="content">
+    <h2>Why AI Tools Can Change Your Life</h2>
+    <p>Artificial Intelligence is transforming the way we work, earn, and grow. Whether you're a freelancer, entrepreneur, or content creator, smart automation tools can help you save time and increase your revenue.</p>
 
-                <div class="product-card">
-                    <div class="product-image">🌷</div>
-                    <div class="product-info">
-                        <h3>باقة الورد الوردي</h3>
-                        <p>باقة جميلة من الورد الوردي الفاتح</p>
-                        <div class="price">120 ريال</div>
-                        <button class="add-to-cart">أضف إلى السلة</button>
-                    </div>
-                </div>
+    <h2>What You’ll Learn</h2>
+    <p>In this guide, you’ll explore the most powerful AI platforms for automating tasks, building bots, and monetizing your traffic. You’ll also discover how to target high-paying countries like the United States, Germany, and Canada to maximize your CPM.</p>
 
-                <div class="product-card">
-                    <div class="product-image">🌼</div>
-                    <div class="product-info">
-                        <h3>باقة الورد الأصفر</h3>
-                        <p>باقة مشرقة من الورد الأصفر</p>
-                        <div class="price">100 ريال</div>
-                        <button class="add-to-cart">أضف إلى السلة</button>
-                    </div>
-                </div>
+    <h2>Start Earning Smarter</h2>
+    <p>Don’t waste time on outdated methods. Use modern tools to create landing pages, automate marketing, and connect with global audiences. This is your chance to build a scalable online income stream using proven strategies.</p>
 
-                <div class="product-card">
-                    <div class="product-image">🌸</div>
-                    <div class="product-info">
-                        <h3>باقة الورد الأبيض</h3>
-                        <p>باقة ناعمة من الورد الأبيض النقي</p>
-                        <div class="price">130 ريال</div>
-                        <button class="add-to-cart">أضف إلى السلة</button>
-                    </div>
-                </div>
+    <a href="#" class="cta-button">Start Now</a>
+  </div>
 
-                <div class="product-card">
-                    <div class="product-image">💐</div>
-                    <div class="product-info">
-                        <h3>باقة مختلطة فاخرة</h3>
-                        <p>باقة متنوعة من أجمل الورود</p>
-                        <div class="price">200 ريال</div>
-                        <button class="add-to-cart">أضف إلى السلة</button>
-                    </div>
-                </div>
+  <div class="footer">
+    &copy; 2025 Smart Revenue Hub. All rights reserved.
+  </div>
 
-                <div class="product-card">
-                    <div class="product-image">🌺</div>
-                    <div class="product-info">
-                        <h3>باقة الورد الاستوائي</h3>
-                        <p>باقة فريدة من الورود الاستوائية</p>
-                        <div class="price">180 ريال</div>
-                        <button class="add-to-cart">أضف إلى السلة</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Ad Script -->
+  <script type='text/javascript' src='//pl27893054.effectivegatecpm.com/a6/02/7a/a6027ac1750c6e1385132f75db18a125.js'></script>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>عن متجرنا</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>متجر بشرى العبدان للورود الفاخرة</h3>
-                    <p>نحن متخصصون في بيع أجمل وأفخر الورود الطازجة لجميع المناسبات. نقدم خدمة عالية الجودة مع ضمان رضا العملاء.</p>
-                    <p>كل باقة ورود يتم اختيارها بعناية فائقة من أفضل المزارع المحلية والعالمية لضمان الطازة والجمال.</p>
-                    <p>نوفر خدمة التوصيل السريع والآمن لجميع أنحاء المدينة مع إمكانية التوصيل في نفس اليوم.</p>
-                </div>
-                <div class="about-image">🌹</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>اتصل بنا</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div>
-                            <h4>الهاتف</h4>
-                            <p>+966 50 123 4567</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <h4>البريد الإلكتروني</h4>
-                            <p>info@bashiraflowers.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <h4>العنوان</h4>
-                            <p>الرياض، المملكة العربية السعودية</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">🕐</div>
-                        <div>
-                            <h4>ساعات العمل</h4>
-                            <p>من الأحد إلى الخميس: 9 صباحاً - 10 مساءً</p>
-                            <p>الجمعة والسبت: 12 ظهراً - 11 مساءً</p>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">الاسم</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">البريد الإلكتروني</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">رقم الهاتف</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">الرسالة</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#products">المنتجات</a>
-                <a href="#about">عن المتجر</a>
-                <a href="#contact">اتصل بنا</a>
-                <a href="#">سياسة الخصوصية</a>
-                <a href="#">شروط الاستخدام</a>
-            </div>
-            <p>&copy; 2025 متجر بشرى العبدان للورود. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
-
-    <script>
-        // إضافة وظيفة بسيطة لزر الشراء
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', function() {
-                const productName = this.parentElement.querySelector('h3').textContent;
-                alert('تم إضافة ' + productName + ' إلى السلة!');
-            });
-        });
-
-        // إضافة وظيفة لنموذج الاتصال
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('شكراً لك! سيتم الرد على رسالتك قريباً.');
-            this.reset();
-        });
-  
+</body>
+</html>
